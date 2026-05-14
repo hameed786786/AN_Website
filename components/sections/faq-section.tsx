@@ -6,7 +6,7 @@ import Image from "next/image";
 const faqData = [
     {
         id: 1,
-        icon: "/faq/info.svg",
+        icon: "/faq/Info.svg",
         question:
             "How can this dashboard help my agency manage projects more efficiently?",
         answer:
