@@ -140,7 +140,6 @@ export default function FooterSection() {
                   alt={item.alt}
                   width={24}
                   height={24}
-                  style={{ width: "100%", height: "auto" }}
                 />
               </a>
             ))}

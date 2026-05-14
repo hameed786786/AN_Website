@@ -25,7 +25,6 @@ export default function FloatingLogoCard() {
           width={190}
           height={42}
           className="h-auto w-[190px]"
-          style={{ width: "100%", height: "auto" }}
           priority
         />
       </div>

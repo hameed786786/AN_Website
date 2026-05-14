@@ -72,7 +72,6 @@ export default function AnalyticsSection() {
                             height={360}
                             priority
                             className="relative z-10 h-auto w-[760px] object-contain"
-                            style={{ width: "100%", height: "auto" }}
                         />
                     </div>
                 </div>

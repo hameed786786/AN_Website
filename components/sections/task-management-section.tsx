@@ -74,7 +74,6 @@ export default function TaskManagementSection() {
                             height={494}
                             priority
                             className="relative z-10 h-[494px] w-auto object-contain"
-                            style={{ width: "auto", height: "auto" }}
                         />
                     </div>
                 </div>
