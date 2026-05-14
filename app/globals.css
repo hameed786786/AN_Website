@@ -31,10 +31,10 @@
   font-weight: 600;
   font-style: normal;
 }
-html {
+html,
+body {
   scroll-behavior: smooth;
 }
-
 body {
   background: white;
   color: black;
