@@ -8,14 +8,14 @@
 }
 @font-face {
   font-family: "ArialCustom";
-  src: url("/fonts/ARIAL.ttf") format("truetype");
+  src: url("/fonts/ARIAL.TTF") format("truetype");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "ArialCustom";
-  src: url("/fonts/ARIALBD.ttf") format("truetype");
+  src: url("/fonts/ARIALBD.TTF") format("truetype");
   font-weight: 800;
   font-style: bold;
 }
