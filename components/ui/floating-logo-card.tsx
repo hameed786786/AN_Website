@@ -6,7 +6,7 @@ export default function FloatingLogoCard() {
       {/* CanvasGrid Style Dashed Lines */}
 
       {/* Top */}
-      <div className="absolute left-[-1px] top-[10px] h-px w-[calc(120%-10px)] bg-[repeating-linear-gradient(to_right,#9A9A9A_0px,#9A9A9A_8px,transparent_8px,transparent_20px)]" />
+      <div className="absolute left-[-17px] top-[10px] h-px w-[calc(120%-6px)] bg-[repeating-linear-gradient(to_right,#9A9A9A_0px,#9A9A9A_8px,transparent_8px,transparent_20px)]" />
 
       {/* Bottom */}
       <div className="absolute bottom-[10px] left-[-15px] h-px w-[calc(120%-20px)] bg-[repeating-linear-gradient(to_right,#9A9A9A_0px,#9A9A9A_8px,transparent_8px,transparent_20px)]" />

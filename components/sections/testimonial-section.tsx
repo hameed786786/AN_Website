@@ -47,18 +47,22 @@ export default function TestimonialSection() {
 
     const handlePrev = () => {
         setActiveIndex((prev) =>
-            prev === 0 ? testimonials.length - 1 : prev - 1
+            prev === 0
+                ? testimonials.length - 1
+                : prev - 1
         );
     };
 
     const handleNext = () => {
         setActiveIndex((prev) =>
-            prev === testimonials.length - 1 ? 0 : prev + 1
+            prev === testimonials.length - 1
+                ? 0
+                : prev + 1
         );
     };
 
     return (
-        <section className="bg-white py-18">
+        <section className="bg-white py-[120px]">
             <div className="mx-auto max-w-[1220px] px-6">
                 {/* Heading */}
                 <div className="flex items-start justify-between gap-10">
@@ -89,13 +93,13 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* Main Container */}
-                <div className="relative mt-20 overflow-hidden rounded-[36px] bg-[#FFF7DD] px-20 py-10">
+                <div className="relative mt-20 ml-[-30px] h-[807px] w-[1220px] overflow-hidden rounded-[36px] bg-[#FFF7DD] px-16 py-12">
                     
                     {/* Controls */}
-                    <div className="absolute left-10 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
+                    <div className="absolute left-8 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
                         <button
                             onClick={handlePrev}
-                            className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
+                            className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
                         >
                             <ChevronUp
                                 size={18}
@@ -105,7 +109,7 @@ export default function TestimonialSection() {
 
                         <button
                             onClick={handleNext}
-                            className="flex h-12 w-12 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
+                            className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
                         >
                             <ChevronDown
                                 size={18}
@@ -115,87 +119,99 @@ export default function TestimonialSection() {
                     </div>
 
                     {/* Testimonial Stack */}
-                    <div className="ml-20 flex flex-col gap-6">
-                        {testimonials.map((testimonial, index) => {
-                            const isActive = index === activeIndex;
+                    <div className="ml-26 flex h-[690px] w-[930px] flex-col gap-5">
+                        {testimonials.map(
+                            (testimonial, index) => {
+                                const isActive =
+                                    index === activeIndex;
 
-                            return (
-                                <div
-                                    key={testimonial.id}
-                                    className={`relative rounded-[24px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                                    ${
-                                        isActive
-                                            ? "scale-100 border-[#F1D374] bg-white py-8 opacity-100 shadow-[0_10px_30px_rgba(232,190,66,0.18)]"
-                                            : "scale-[0.985] border-transparent bg-[#FFFBEF] py-6 opacity-35"
-                                    }`}
-                                >
-                                    {/* Floating Quote */}
-                                    <div className="absolute left-8 top-0 z-30 -translate-y-1/2">
-                                        <Image
-                                            src="/Quotes.svg"
-                                            alt="Quote"
-                                            width={72}
-                                            height={72}
-                                            className="h-auto w-[72px]"
-                                        />
-                                    </div>
+                                return (
+                                    <div
+                                        key={testimonial.id}
+                                        className={`relative rounded-[22px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                        ${
+                                            isActive
+                                                ? "border-[#F1D374] bg-white py-7 opacity-100 shadow-[0_10px_30px_rgba(232,190,66,0.18)]"
+                                                : "border-transparent bg-[#FFFBEF] py-5 opacity-35"
+                                        }`}
+                                    >
+                                        {/* Floating Quote */}
+                                        <div className="absolute left-8 top-0 z-30 -translate-y-1/2">
+                                            <Image
+                                                src="/Quotes.svg"
+                                                alt="Quote"
+                                                width={64}
+                                                height={64}
+                                                className="h-auto w-[64px]"
+                                            />
+                                        </div>
 
-                                    {/* Content */}
-                                    <div className="relative z-10 px-10 pt-6">
-                                        <p
-                                            className={`max-w-[760px] text-[16px] font-normal leading-[26px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                                            ${
-                                                isActive
-                                                    ? "text-[#202020]"
-                                                    : "text-[#A9A18A]"
-                                            }`}
-                                            style={{
-                                                fontFamily: "ArialCustom",
-                                            }}
-                                        >
-                                            {testimonial.quote}
-                                        </p>
+                                        {/* Content */}
+                                        <div className="relative z-10 px-9 pt-5">
+                                            <p
+                                                className={`max-w-[700px] text-[16px] font-normal leading-[25px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                                ${
+                                                    isActive
+                                                        ? "text-[#202020]"
+                                                        : "text-[#A9A18A]"
+                                                }`}
+                                                style={{
+                                                    fontFamily:
+                                                        "ArialCustom",
+                                                }}
+                                            >
+                                                {
+                                                    testimonial.quote
+                                                }
+                                            </p>
 
-                                        {/* Expanded Info */}
-                                        <div
-                                            className={`grid overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
-                                            ${
-                                                isActive
-                                                    ? "mt-8 grid-rows-[1fr] opacity-100"
-                                                    : "mt-0 grid-rows-[0fr] opacity-0"
-                                            }`}
-                                        >
-                                            <div className="overflow-hidden">
-                                                <div className="animate-[fadeIn_0.75s_cubic-bezier(0.22,1,0.36,1)]">
-                                                    <h3
-                                                        className="text-[26px] font-bold text-black"
-                                                        style={{
-                                                            fontFamily: "Archivo",
-                                                        }}
-                                                    >
-                                                        {testimonial.name}
-                                                    </h3>
+                                            {/* Expanded Info */}
+                                            <div
+                                                className={`grid overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                                ${
+                                                    isActive
+                                                        ? "mt-7 grid-rows-[1fr] opacity-100"
+                                                        : "mt-0 grid-rows-[0fr] opacity-0"
+                                                }`}
+                                            >
+                                                <div className="overflow-hidden">
+                                                    <div className="animate-[fadeIn_0.75s_cubic-bezier(0.22,1,0.36,1)]">
+                                                        <h3
+                                                            className="text-[20px] font-bold text-black"
+                                                            style={{
+                                                                fontFamily:
+                                                                    "ArialCustom",
+                                                            }}
+                                                        >
+                                                            {
+                                                                testimonial.name
+                                                            }
+                                                        </h3>
 
-                                                    <p
-                                                        className="mt-1 text-[14px] text-[#7A7A7A]"
-                                                        style={{
-                                                            fontFamily: "ArialCustom",
-                                                        }}
-                                                    >
-                                                        {testimonial.role}
-                                                    </p>
+                                                        <p
+                                                            className="mt-1 text-[14px] text-[#7A7A7A] font-normal"
+                                                            style={{
+                                                                fontFamily:
+                                                                    "ArialCustom",
+                                                            }}
+                                                        >
+                                                            {
+                                                                testimonial.role
+                                                            }
+                                                        </p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                    {/* Glow */}
-                                    {isActive && (
-                                        <div className="absolute inset-0 rounded-[24px] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
-                                    )}
-                                </div>
-                            );
-                        })}
+                                        {/* Glow */}
+                                        {isActive && (
+                                            <div className="absolute inset-0 rounded-[22px] shadow-[inset_0_1px_0_rgba(255,255,255,0.8)]" />
+                                        )}
+                                    </div>
+                                );
+                            }
+                        )}
                     </div>
                 </div>
             </div>

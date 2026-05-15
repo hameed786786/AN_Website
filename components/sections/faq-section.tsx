@@ -66,13 +66,13 @@ function FAQCard({
     return (
         <div
             className={`overflow-hidden rounded-[24px] border transition-all duration-500 ${isOpen
-                    ? "border-[#E7DDAF] bg-[#FFF8E6]"
-                    : "border-[#ECECEC] bg-white"
+                    ? "border-[#E7DDAF] bg-[#FFF8E6] w-[589px] h-[228px]"
+                    : "border-[#ECECEC] bg-white w-[589px] h-[92.42px]"
                 } shadow-[0_4px_18px_rgba(0,0,0,0.04)]`}
         >
             <button
                 onClick={onToggle}
-                className={`w-full px-7 text-left transition-all duration-500 ${isOpen ? "py-6" : "py-7"
+                className={`w-full px-7 text-left transition-all duration-500 ${isOpen ? "py-6 " : "py-7 "
                     }`}
             >
                 <div className="flex items-start justify-between gap-5">
@@ -94,9 +94,9 @@ function FAQCard({
                         {/* Content */}
                         <div>
                             <h3
-                                className={`max-w-[430px] leading-[135%] font-bold transition-all duration-300 ${isOpen
-                                        ? "text-[22px] font-bold text-black"
-                                        : "text-[20px] font-bold text-[#16123F]"
+                                className={` leading-[135%] font-bold transition-all duration-300 ${isOpen
+                                        ? "max-w-[478px] h-[74px] text-[20px] font-bold text-black h-[41px]"
+                                        : "max-w-[478px] h-[74px] text-[20px] font-bold text-[#16123F]"
                                     }`}
                                 style={{
                                     fontFamily: "ArialCustom",
@@ -108,13 +108,13 @@ function FAQCard({
                             {/* Expandable Content */}
                             <div
                                 className={`grid transition-all duration-300 ${isOpen
-                                        ? "mt-4 grid-rows-[1fr] opacity-100"
+                                        ? "grid-rows-[1fr] opacity-100"
                                         : "grid-rows-[0fr] opacity-0"
                                     }`}
                             >
                                 <div className="overflow-hidden">
                                     <p
-                                        className="max-w-[580px] text-[16px] leading-[190%] text-[#6B6B8A]"
+                                        className="h-[103px] w-[425px] text-[14px] leading-[190%] text-[#6B6B8A]"
                                         style={{
                                             fontFamily: "ArialCustom",
                                         }}
@@ -154,13 +154,13 @@ export default function FAQSection() {
     const [openId, setOpenId] = useState<number>(1);
 
     return (
-        <section className="bg-white py-28">
+        <section className="bg-white py-18">
             <div className="mx-auto max-w-[1220px] px-6">
                 {/* Heading */}
-                <div className="flex items-start justify-between gap-10">
+                <div className=" flex items-start justify-between gap-10">
                     <div>
                         <h2
-                            className="max-w-[620px] text-[72px] font-extrabold leading-[105%] tracking-[-3px] text-black"
+                            className="w-[546px] h-[160px] text-[64px] font-extrabold leading-[105%] tracking-[-3px] text-black"
                             style={{
                                 fontFamily: "Archivo",
                             }}
@@ -173,7 +173,7 @@ export default function FAQSection() {
                     </div>
 
                     <p
-                        className="pt-10 text-center text-[20px] font-bold leading-[100%] tracking-[0%] text-black lg:text-right"
+                        className="w-[316px] h-[23px] pt-10 text-center text-[20px] font-bold leading-[100%] tracking-[0%] text-black lg:text-right"
                         style={{
                             fontFamily: "ArialCustom",
                         }}
@@ -183,7 +183,7 @@ export default function FAQSection() {
                 </div>
 
                 {/* FAQ GRID */}
-                <div className="mt-20 grid gap-5 lg:grid-cols-2">
+                <div className="w-[1198px] h-[454px] mt-10 grid gap-5 lg:grid-cols-2">
                     {/* Left */}
                     <div className="flex flex-col gap-5">
                         {faqData.slice(0, 3).map((faq) => (

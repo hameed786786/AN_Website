@@ -4,7 +4,7 @@ export default function IntegrationsSection() {
     return (
         <section
             id="integrations"
-            className="relative overflow-hidden pt-[80px] pb-[40px]"
+            className="relative overflow-hidden pt-[80px] pb-[80px]"
         >
             {/* Main Container */}
             <div className="relative z-20 mx-auto w-[1265px]">

@@ -43,7 +43,7 @@ export default function WhySection() {
               fontFamily: "Archivo",
               fontSize: "64px",
               lineHeight: "80px",
-              fontWeight: 800,
+              
               letterSpacing: "-2px",
             }}
           >
@@ -75,15 +75,15 @@ export default function WhySection() {
           {cards.map((card) => (
             <div
               key={card.id}
-              className="relative h-[255px] overflow-hidden rounded-[36px] border border-[#E7E7E7] bg-[#F7F7F7] px-[22px] pt-[22px]"
+              className="relative w-[640px] h-[235px] overflow-hidden rounded-[36px] border border-[#E7E7E7] bg-[#F7F7F7] px-[22px] pt-[22px]"
             >
               {/* Content */}
-              <div className="relative z-10 max-w-[470px]">
+              <div className="relative z-10 w-[415px] h-[92px]">
                 <h3
                   className="text-black"
                   style={{
-                    fontFamily: "Archivo",
-                    fontSize: "28px",
+                    fontFamily: "Geist",
+                    fontSize: "32px",
                     lineHeight: "38px",
                     fontWeight: 700,
                     letterSpacing: "-1px",
@@ -93,7 +93,7 @@ export default function WhySection() {
                 </h3>
 
                 <p
-                  className="mt-[14px] text-[#7A7A7A]"
+                  className="mt-[14px] text-[#7A7A7A] w-[415px] h-[36px]"
                   style={{
                     fontFamily: "ArialCustom",
                     fontSize: "16px",
@@ -106,7 +106,7 @@ export default function WhySection() {
               </div>
 
               {/* Number SVG */}
-              <div className="pointer-events-none absolute bottom-[1px] right-[30px]">
+              <div className="pointer-events-none absolute bottom-[1px] right-[23px]">
                 <Image
                   src={card.image}
                   alt={card.id}

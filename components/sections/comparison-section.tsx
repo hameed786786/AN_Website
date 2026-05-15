@@ -81,7 +81,7 @@ export default function ComparisonSection() {
                             {/* Feature Name */}
                             <div className="flex h-[116px] items-center justify-center border-r border-[#D8D8D8] bg-white">
                                 <span
-                                    className="text-[16px] font-semibold text-[#4A4A4A]"
+                                    className="text-[16px] font-medium text-[#4A4A4A]"
                                     style={{
                                         fontFamily: "poppins",
                                     }}

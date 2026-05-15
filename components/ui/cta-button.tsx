@@ -13,7 +13,7 @@ export default function CTAButton({
   return (
     <Button
       className={cn(
-        "h-12 rounded-xl bg-[#F6D36A] px-6 text-base font-bold text-black shadow-md hover:bg-[#ebc95f]",
+        "w-[172px] h-[48px] rounded-2xl bg-[#F6D36A] px-6 text-base font-bold text-black shadow-md hover:bg-[#ebc95f]",
         className
       )}
     >

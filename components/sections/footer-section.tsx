@@ -2,6 +2,11 @@
 
 import Image from "next/image";
 import { useState } from "react";
+import { Archivo } from "next/font/google";
+const archivo = Archivo({
+  subsets: ["latin"],
+  weight: ["800"],
+});
 
 const navItems = [
   "About Us",

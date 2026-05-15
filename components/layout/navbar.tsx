@@ -73,7 +73,13 @@ export default function Navbar() {
 
           {/* CTA */}
           <CTAButton className="hidden md:flex">
-            Book a Demo
+            <p className="font-bold text-[20px] font-bold leading-[32px] tracking-[0%] "
+              style={{
+                fontFamily: "ArialCustom",
+              }}
+            >
+              Book a Demo
+            </p>
           </CTAButton>
         </div>
       </SectionWrapper>

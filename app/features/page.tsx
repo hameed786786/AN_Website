@@ -13,16 +13,18 @@ import ComparisonSection from "@/components/sections/comparison-section";
 import TaskManagementSection from "@/components/sections/task-management-section";
 export default function FeaturesPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#F8F8F8]">
+    <main className="relative min-h-screen bg-[#F8F8F8] overflow-x-clip">
       {/* Navbar */}
       <Navbar />
 
       {/* Hero */}
       <FeaturesHeroSection />
     
-      {/* Sticky Nav */}
-      <FeaturesStickyNav />
-        {/* AI Automation */}
+      {/* Feature Sections Container (Limits Sticky Nav scope) */}
+      <div className="relative w-full">
+        {/* Sticky Nav */}
+        <FeaturesStickyNav />
+        {/* AI Automation etc. */}
         <FeatureShowcaseSection />
         <TaskManagementSection />
         <CRMSection />
@@ -30,7 +32,11 @@ export default function FeaturesPage() {
         <FeedbackSection />
         <IntegrationsSection />
         <AnalyticsSection />
+      </div>
+
+      <div id="comparison-section">
         <ComparisonSection />
+      </div>
       <FooterSection />
     </main>
   );

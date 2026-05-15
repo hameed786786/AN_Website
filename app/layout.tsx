@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Archivo ,Poppins } from "next/font/google";
+import { Geist , Poppins } from "next/font/google";
 import "./globals.css";
 
 const geist = Geist({
@@ -11,10 +11,6 @@ const poppins = Poppins({
   weight: ["400", "500", "600"],
 });
 
-const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["800"],
-});
 
 export const metadata: Metadata = {
   title: "Procevia",
@@ -28,7 +24,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geist.className} ${archivo.className}`}>{children}</body>
+      <body className={`${geist.className} `}>{children}</body>
     </html>
   );
 }
