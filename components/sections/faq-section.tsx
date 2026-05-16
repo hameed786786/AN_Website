@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 const faqData = [
@@ -80,7 +80,7 @@ function FAQCard({
                     <div className="flex gap-4">
                         {/* Icon */}
                         <div
-                            className={`mt-1 flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${isOpen ? "bg-white" : "bg-[#F7F7FB]"
+                            className={` flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${isOpen ? "bg-white" : "bg-[#F7F7FB]"
                                 } shadow-sm`}
                         >
                             <Image
@@ -94,9 +94,9 @@ function FAQCard({
                         {/* Content */}
                         <div>
                             <h3
-                                className={` leading-[135%] font-bold transition-all duration-300 ${isOpen
+                                className={`ml-[4px] mt-[-8px] leading-[135%] font-bold transition-all duration-300 ${isOpen
                                         ? "max-w-[478px] h-[74px] text-[20px] font-bold text-black h-[41px]"
-                                        : "max-w-[478px] h-[74px] text-[20px] font-bold text-[#16123F]"
+                                        : " max-w-[478px] h-[74px] text-[20px] font-bold text-[#16123F]"
                                     }`}
                                 style={{
                                     fontFamily: "ArialCustom",
@@ -106,29 +106,22 @@ function FAQCard({
                             </h3>
 
                             {/* Expandable Content */}
-                            <div
-                                className={`grid transition-all duration-300 ${isOpen
-                                        ? "grid-rows-[1fr] opacity-100"
-                                        : "grid-rows-[0fr] opacity-0"
-                                    }`}
-                            >
-                                <div className="overflow-hidden">
-                                    <p
-                                        className="h-[103px] w-[425px] text-[14px] leading-[190%] text-[#6B6B8A]"
-                                        style={{
-                                            fontFamily: "ArialCustom",
-                                        }}
-                                    >
-                                        {faq.answer}
-                                    </p>
-                                </div>
-                            </div>
+                                                    <ExpandableAnswer isOpen={isOpen}>
+                                                        <p
+                                                            className="w-full text-[14px] leading-[190%] text-[#6B6B8A]"
+                                                            style={{
+                                                                fontFamily: "ArialCustom",
+                                                            }}
+                                                        >
+                                                            {faq.answer}
+                                                        </p>
+                                                    </ExpandableAnswer>
                         </div>
                     </div>
 
                     {/* Toggle */}
                     <div
-                        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] shadow-sm transition-all duration-500 ${isOpen
+                        className={`mt-[-2px] flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] shadow-sm transition-all duration-500 ${isOpen
                                 ? "bg-[#F6D36A]"
                                 : "bg-[#F6F4FB]"
                             }`}
@@ -218,5 +211,68 @@ export default function FAQSection() {
                 </div>
             </div>
         </section>
+    );
+}
+
+function ExpandableAnswer({
+    children,
+    isOpen,
+}: {
+    children: React.ReactNode;
+    isOpen: boolean;
+}) {
+    const contentRef = useRef<HTMLDivElement | null>(null);
+    const [height, setHeight] = useState<string>(isOpen ? "auto" : "0px");
+
+    useEffect(() => {
+        const el = contentRef.current;
+        if (!el) return;
+
+        if (isOpen) {
+            const scrollH = el.scrollHeight;
+            setHeight(`${scrollH}px`);
+
+            const parent = el.parentElement;
+            const onTransitionEnd = () => {
+                if (isOpen) setHeight("auto");
+            };
+            parent?.addEventListener("transitionend", onTransitionEnd);
+            return () => parent?.removeEventListener("transitionend", onTransitionEnd);
+        } else {
+            if (height === "auto") {
+                const scrollH = el.scrollHeight;
+                setHeight(`${scrollH}px`);
+                requestAnimationFrame(() => setHeight("0px"));
+            } else {
+                setHeight("0px");
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [isOpen]);
+
+    useEffect(() => {
+        function onResize() {
+            const el = contentRef.current;
+            if (!el) return;
+            if (isOpen && height !== "auto") setHeight(`${el.scrollHeight}px`);
+        }
+
+        window.addEventListener("resize", onResize);
+        return () => window.removeEventListener("resize", onResize);
+    }, [isOpen, height]);
+
+    const style: React.CSSProperties = {
+        height: height === "auto" ? "auto" : height,
+        overflow: "hidden",
+        transition: "height 300ms ease, opacity 300ms ease",
+        opacity: isOpen ? 1 : 0,
+    };
+
+    return (
+        <div style={style}>
+            <div ref={contentRef} className="pt-3">
+                {children}
+            </div>
+        </div>
     );
 }

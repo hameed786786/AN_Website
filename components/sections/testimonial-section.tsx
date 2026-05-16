@@ -93,7 +93,7 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* Main Container */}
-                <div className="relative mt-20 ml-[-30px] h-[807px] w-[1220px] overflow-hidden rounded-[36px] bg-[#FFF7DD] px-16 py-12">
+                <div className="relative mt-20 ml-[-30px] h-[857px] w-[1220px] overflow-hidden rounded-[36px] bg-[#FFF7DD] px-16 py-12">
                     
                     {/* Controls */}
                     <div className="absolute left-8 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
@@ -128,7 +128,7 @@ export default function TestimonialSection() {
                                 return (
                                     <div
                                         key={testimonial.id}
-                                        className={`relative rounded-[22px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                        className={`mb-[15px] relative rounded-[22px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
                                         ${
                                             isActive
                                                 ? "border-[#F1D374] bg-white py-7 opacity-100 shadow-[0_10px_30px_rgba(232,190,66,0.18)]"

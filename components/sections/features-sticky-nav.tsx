@@ -133,21 +133,29 @@ export default function FeaturesStickyNav() {
                     <img
                       src={item.icon}
                       alt={item.label}
-                      className={`h-[24px] w-[24px] transition-all duration-300 ${
+                        className={`h-[24px] w-[24px] transition-all duration-300 ${
                         isActive
-                          ? "opacity-100"
+                          ? "opacity-100 scale-105"
                           : "opacity-70"
                       }`}
+                        style={{
+                          filter:
+                            isActive
+                              ? "brightness(0) saturate(100%) contrast(1.25) drop-shadow(0 0 0.45px #000)"
+                              : item.id === "ai-automation"
+                                ? "grayscale(1) brightness(0.78) contrast(0.78)"
+                                : "grayscale(1) brightness(0.58) contrast(1)",
+                        }}
                     />
 
-                    <span
-                      className="whitespace-nowrap text-[14px] font-normal leading-[100%]"
-                      style={{
-                        fontFamily: "ArialCustom",
-                      }}
-                    >
-                      {item.label}
-                    </span>
+                          <span
+                            className={`whitespace-nowrap text-[14px] leading-[100%] ${isActive ? 'font-bold' : 'font-normal'}`}
+                            style={{
+                              fontFamily: "ArialCustom",
+                            }}
+                          >
+                            {item.label}
+                          </span>
                   </button>
                 );
               })}
