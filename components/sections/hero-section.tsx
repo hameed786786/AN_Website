@@ -28,10 +28,9 @@ export default function HeroSection() {
 
           <CTAButton className="mt-9">
             <p
-              className="w-[128px] h-[32px] text-[20px] leading-[32px] tracking-[0%]"
+              className="text-[20px] leading-[32px] tracking-[-0.02em] font-black"
               style={{
-                fontFamily: "ArialCustom",
-                fontWeight: 700,
+                fontFamily: "ArialCustom, Arial, sans-serif"
               }}
             >
               Book a Demo

@@ -74,10 +74,9 @@ export default function Navbar() {
           {/* CTA */}
           <CTAButton className="hidden md:flex">
             <p
-              className="text-[20px] leading-[32px] tracking-[0%]"
+              className="text-[20px] leading-[32px] tracking-[-0.02em] font-black"
               style={{
-                fontFamily: "ArialCustom",
-                fontWeight: 700,
+                fontFamily: "ArialCustom, Arial, sans-serif"
               }}
             >
               Book a Demo
