@@ -64,9 +64,10 @@ export default function FeaturesHeroSection() {
           {/* CTA */}
           <CTAButton className="mt-15">
             <p
-              className="w-[128px] h-[32px] font-bold text-[20px] leading-[32px] tracking-[0%]"
+              className="font-bold w-[128px] h-[32px] text-[20px] leading-[32px] tracking-[0%]"
               style={{
                 fontFamily: "ArialCustom",
+                fontWeight: 700,
               }}
             >
               Book a Demo

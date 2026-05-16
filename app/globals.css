@@ -15,9 +15,9 @@
 
 @font-face {
   font-family: "ArialCustom";
-  src: url("/fonts/ARIALBD.TTF") format("truetype");
-  font-weight: 800;
-  font-style: bold;
+  src: url("/fonts/ArialBold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
 }
 @font-face {
   font-family: "ClashDisplay";
