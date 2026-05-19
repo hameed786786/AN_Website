@@ -7,7 +7,7 @@ import TestimonialSection from "@/components/sections/testimonial-section";
 import FooterSection from "@/components/sections/footer-section";
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-white">
+    <main className="relative min-h-screen overflow-x-hidden overflow-y-visible bg-white">
       <div className="relative z-10">
         <Navbar />
         <HeroSection />

@@ -3,31 +3,35 @@ import { Archivo } from "next/font/google";
 import { DM_Sans } from "next/font/google";
 
 const dmSans = DM_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
 });
 
 const archivo = Archivo({
-  subsets: ["latin"],
-  weight: ["800"],
+    subsets: ["latin"],
+    weight: ["800"],
 });
 
 export default function PoweredSection() {
     return (
-        <section className="relative overflow-hidden bg-white py-4 pb-10">
-            <div className="mx-auto flex max-w-[1200px] flex-col items-center px-6">
-                {/* Heading */}
+        <section className="relative overflow-hidden bg-white py-8 sm:py-12 md:py-16 lg:py-4 lg:pb-10">
+
+            <div className="mx-auto flex max-w-300 flex-col items-center px-4 sm:px-6 md:px-8 lg:px-6">
+
+                {/* HEADING */}
                 <div className="text-center">
+
                     <h2
-                        className={`${archivo.className} text-[64px] font-extrabold leading-[110%] tracking-[-2px] text-black`}
-                    >                        Powered by{" "}
-                        <span className="bg-[#F6D36A] px-2">
+                        className={`${archivo.className} text-3xl font-extrabold leading-[110%] tracking-[-1px] text-black sm:text-4xl sm:tracking-[-1.5px] md:text-5xl md:tracking-[-2px] lg:text-[64px]`}
+                    >
+                        Powered by{" "}
+                        <span className="bg-[#F6D36A] px-1.5 sm:px-2">
                             Anthill Networks
                         </span>
                     </h2>
 
                     <p
-                        className="mx-auto mt-6 max-w-[1050px] text-center text-[16px] leading-[26px] capitalize text-[#4B4B4B]"
+                        className="mx-auto mt-4 max-w-262.5 text-center text-xs leading-5 capitalize text-[#4B4B4B] sm:mt-6 sm:text-sm sm:leading-6 md:text-base md:leading-7 lg:text-[16px] lg:leading-6.5"
                         style={{
                             fontFamily: "ArialCustom",
                             fontWeight: "400",
@@ -40,24 +44,26 @@ export default function PoweredSection() {
                     </p>
                 </div>
 
-                {/* Image Section */}
-                <div className="relative mt-16 w-screen h-[712px] overflow-hidden">
+                {/* IMAGE SECTION */}
+                <div className="relative mt-8 h-[420px] w-full overflow-hidden rounded-2xl sm:mt-10 sm:h-[560px] sm:rounded-3xl md:mt-12 md:h-[620px] lg:mt-16 lg:h-178 lg:w-screen lg:rounded-none">
+
                     <Image
                         src="/team-meeting.svg"
                         alt="Anthill Networks Team"
                         width={1440}
                         height={712}
-                        className="h-auto w-full object-cover"
+                        className="h-full w-full object-cover"
                         priority
                     />
 
-                    {/* Overlay */}
-                    <div className="absolute inset-0 bg-black/20 " />
+                    {/* OVERLAY */}
+                    <div className="absolute inset-0 bg-black/20" />
 
-                    {/* Bottom Glass Card */}
-                    <div className="ml-[35px] w-[1400px] absolute bottom-8 left-8 right-8 rounded-[24px] border border-white bg-white/10 p-8 ">
+                    {/* BOTTOM GLASS CARD */}
+                    <div className="absolute bottom-3 left-3 right-3 z-20 mx-auto max-w-none rounded-[18px] border border-white bg-black/72 px-4 py-4 backdrop-blur-[2px] sm:bottom-6 sm:left-6 sm:right-6 sm:rounded-[22px] sm:p-5 md:bottom-8 md:left-8 md:right-8 md:p-6 lg:bottom-8 lg:left-8 lg:right-8 lg:w-350 lg:rounded-3xl lg:bg-white/10 lg:p-8 lg:text-left">
+
                         <h3
-                            className="text-[42px] font-bold leading-[110%] tracking-[-1px] text-white"
+                            className="text-[14px] font-bold leading-[110%] tracking-[-1px] text-white sm:text-2xl md:text-2xl lg:text-[42px]"
                             style={{
                                 fontFamily: "ClashDisplay",
                                 fontWeight: "600",
@@ -65,8 +71,9 @@ export default function PoweredSection() {
                         >
                             Our Goal
                         </h3>
+
                         <p
-                            className={` ${dmSans.className} mt-5 max-w-[1100px] text-[18px] font-semibold leading-[150%] text-white/92`}
+                            className={`${dmSans.className} mt-1 max-w-full text-[9px] font-semibold leading-4 text-white/92 sm:mt-4 sm:text-sm sm:leading-6 md:text-[12px] md:leading-7 lg:mt-5 lg:max-w-275 lg:text-[18px] lg:leading-[150%]`}
                         >
                             To simplify complex business operations through intelligent
                             technology — from SaaS platforms to custom digital ecosystems,
@@ -74,8 +81,9 @@ export default function PoweredSection() {
                             confidence.
                         </p>
 
-                        {/* Tags */}
-                        <div className="mt-6 flex flex-wrap gap-3">
+                        {/* TAGS */}
+                        <div className="mt-2 flex flex-wrap gap-1 sm:mt-5 sm:gap-3 lg:mt-6 md:h-8">
+
                             {[
                                 "SaaS Product Development",
                                 "Custom Platforms",
@@ -84,7 +92,7 @@ export default function PoweredSection() {
                             ].map((item) => (
                                 <div
                                     key={item}
-                                    className="font-normal rounded-full bg-white px-4 py-2 text-[16px] text-black shadow-sm"
+                                    className="rounded-full bg-white px-2 py-0.5 text-[8px] font-normal text-black shadow-sm sm:px-4 sm:py-2 sm:text-[15px] lg:px-4 lg:py-2 lg:text-[16px] md:text-[8px] md:px-2"
                                     style={{
                                         fontFamily: "ArialCustom",
                                     }}

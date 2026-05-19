@@ -55,7 +55,7 @@ export default function FooterSection() {
   };
 
   return (
-    <footer className="relative mt-2 overflow-hidden bg-white pt-32">
+    <footer className="relative mt-2 overflow-visible bg-white pt-12 sm:pt-16 md:pt-20 lg:overflow-hidden lg:pt-32">
       {/* Background Curve */}
       <div className="absolute left-0 top-0 w-full">
         <Image
@@ -67,13 +67,13 @@ export default function FooterSection() {
         />
       </div>
 
-      <div className="relative z-10 mx-auto max-w-[1220px] px-6">
+      <div className="relative z-20 mx-auto max-w-305 px-4 sm:px-5 md:px-6 lg:z-10 lg:px-6">
         {/* Newsletter Card */}
-        <div className="relative overflow-hidden rounded-[20px] bg-black px-20 py-16 shadow-[0_30px_60px_rgba(0,0,0,0.25)]">
-          <div className="flex flex-col items-center justify-between gap-10 lg:flex-row">
+        <div className="relative overflow-hidden rounded-[20px] bg-black px-4 py-6 shadow-[0_30px_60px_rgba(0,0,0,0.25)] sm:px-8 sm:py-9 md:px-10 md:py-12 lg:px-20 lg:py-16">
+          <div className="flex flex-col items-center justify-between gap-4 lg:flex-row lg:gap-10">
             {/* Heading */}
             <h2
-              className="max-w-[380px] text-center text-[48px] font-bold leading-[100%] text-white lg:text-left"
+              className="max-w-60 text-center text-2xl font-bold leading-[100%] text-white sm:max-w-[320px] sm:text-4xl md:max-w-90 md:text-[42px] lg:max-w-95 lg:text-[48px] lg:text-left"
               style={{
                 fontFamily: "Archivo",
               }}
@@ -86,7 +86,7 @@ export default function FooterSection() {
             {/* Form */}
             <form
               onSubmit={handleSubmit}
-              className="flex h-[72px] w-full max-w-[510px] items-center rounded-[8px] bg-white p-2"
+              className="flex h-12 w-full max-w-127.5 items-center rounded-lg bg-white p-1 sm:h-16 sm:p-2 md:h-18 md:p-2"
             >
               <input
                 type="email"
@@ -96,7 +96,7 @@ export default function FooterSection() {
                 onChange={(e) =>
                   setEmail(e.target.value)
                 }
-                className="h-full flex-1 border-none bg-transparent px-4 text-[16px] text-black outline-none placeholder:text-[#9A9A9A]"
+                className="h-full flex-1 border-none bg-transparent px-2 text-xs text-black outline-none placeholder:text-[#9A9A9A] sm:px-4 sm:text-base"
                 style={{
                   fontFamily: "ArialCustom",
                 }}
@@ -104,7 +104,7 @@ export default function FooterSection() {
 
               <button
                 type="submit"
-                className="h-[56px] w-[180px] rounded-[6px] bg-[#F6D36A] text-[18px] font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#efcb59]"
+                className="h-10 w-24 rounded-md bg-[#F6D36A] text-xs font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#efcb59] sm:h-12 sm:w-37.5 sm:text-[16px] md:h-14 md:w-45 md:text-[18px]"
                 style={{
                   fontFamily: "ArialCustom",
                 }}
@@ -116,13 +116,13 @@ export default function FooterSection() {
         </div>
 
         {/* Footer Nav */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-8 lg:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 lg:mt-16 lg:flex-row lg:gap-8">
           {/* Links */}
-          <div className="flex flex-wrap items-center gap-10">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 lg:justify-start lg:gap-10">
             {navItems.map((item) => (
               <button
                 key={item}
-                className="text-[16px] font-normal text-black transition-all duration-300 hover:opacity-60"
+                className="text-[13px] font-normal text-black transition-all duration-300 hover:opacity-60 sm:text-[15px] md:text-[16px]"
                 style={{
                   fontFamily: "ArialCustom",
                 }}
@@ -133,7 +133,7 @@ export default function FooterSection() {
           </div>
 
           {/* Social Icons */}
-          <div className="flex items-center gap-5">
+          <div className="flex items-center gap-2.5 sm:gap-4 lg:gap-5">
             {socialIcons.map((item) => (
               <a
                 key={item.alt}
@@ -145,6 +145,7 @@ export default function FooterSection() {
                   alt={item.alt}
                   width={24}
                   height={24}
+                  className="h-4.5 w-4.5 sm:h-6 sm:w-6"
                 />
               </a>
             ))}
@@ -152,13 +153,13 @@ export default function FooterSection() {
         </div>
 
         {/* Divider */}
-        <div className="mt-10 h-px w-full bg-[#D9D9D9]" />
+        <div className="mt-6 h-px w-full bg-[#D9D9D9] lg:mt-10" />
 
         {/* Bottom */}
-        <div className=" flex justify-end gap-30 py-12 lg:flex-row">
+        <div className="flex flex-col items-center gap-3 py-6 text-center sm:gap-5 md:flex-row md:items-center md:justify-between md:text-left lg:flex-row lg:justify-end lg:gap-30 lg:py-12">
           {/* Copyright */}
           <h3
-            className="text-center text-[24px] font-bold text-[#141B34] lg:text-left"
+            className="text-sm font-bold text-[#141B34] sm:text-lg md:text-[20px] lg:text-[24px] lg:text-left"
             style={{
               fontFamily: "ArialCustom",
             }}
@@ -167,9 +168,9 @@ export default function FooterSection() {
           </h3>
 
           {/* Policies */}
-          <div className="flex items-center gap-10">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-6 lg:gap-10">
             <button
-              className="text-[14px] font-normal text-[#141B34] transition-all duration-300 hover:opacity-60"
+              className="text-[11px] font-normal text-[#141B34] transition-all duration-300 hover:opacity-60 sm:text-sm"
               style={{
                 fontFamily: "ArialCustom",
               }}
@@ -178,7 +179,7 @@ export default function FooterSection() {
             </button>
 
             <button
-              className="text-[14px] font-normal text-[#141B34] transition-all duration-300 hover:opacity-60"
+              className="text-[11px] font-normal text-[#141B34] transition-all duration-300 hover:opacity-60 sm:text-sm"
               style={{
                 fontFamily: "ArialCustom",
               }}

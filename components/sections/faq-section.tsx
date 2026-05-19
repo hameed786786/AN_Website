@@ -65,22 +65,22 @@ function FAQCard({
 }) {
     return (
         <div
-            className={`overflow-hidden rounded-[24px] border transition-all duration-500 ${isOpen
-                    ? "border-[#E7DDAF] bg-[#FFF8E6] w-[589px] h-[228px]"
-                    : "border-[#ECECEC] bg-white w-[589px] h-[92.42px]"
+            className={`overflow-hidden rounded-lg sm:rounded-2xl md:rounded-2xl lg:rounded-[24px] border transition-all duration-500 ${isOpen
+                    ? "border-[#E7DDAF] bg-[#FFF8E6] w-full sm:w-full md:w-full lg:w-[589px] h-auto sm:h-auto md:h-auto lg:h-[228px]"
+                    : "border-[#ECECEC] bg-white w-full sm:w-full md:w-full lg:w-[589px] h-auto sm:h-auto md:h-auto lg:h-[92.42px]"
                 } shadow-[0_4px_18px_rgba(0,0,0,0.04)]`}
         >
             <button
                 onClick={onToggle}
-                className={`w-full px-7 text-left transition-all duration-500 ${isOpen ? "py-6 " : "py-7 "
+                className={`w-full px-3 sm:px-4 md:px-5 lg:px-7 text-left transition-all duration-500 ${isOpen ? "py-4 sm:py-5 md:py-5 lg:py-6" : "py-4 sm:py-5 md:py-5 lg:py-7"
                     }`}
             >
-                <div className="flex items-start justify-between gap-5">
+                <div className="flex items-start justify-between gap-3 sm:gap-4 md:gap-4 lg:gap-5">
                     {/* Left */}
-                    <div className="flex gap-4">
+                    <div className="flex gap-2 sm:gap-3 md:gap-3 lg:gap-4">
                         {/* Icon */}
                         <div
-                            className={` flex h-9 w-9 shrink-0 items-center justify-center rounded-full ${isOpen ? "bg-white" : "bg-[#F7F7FB]"
+                            className={` flex h-7 w-7 sm:h-8 sm:w-8 md:h-8 md:w-8 lg:h-9 lg:w-9 shrink-0 items-center justify-center rounded-full ${isOpen ? "bg-white" : "bg-[#F7F7FB]"
                                 } shadow-sm`}
                         >
                             <Image
@@ -88,15 +88,16 @@ function FAQCard({
                                 alt={faq.question}
                                 width={28}
                                 height={28}
+                                className="w-5 h-5 sm:w-6 sm:h-6 md:w-6 md:h-6 lg:w-7 lg:h-7"
                             />
                         </div>
 
                         {/* Content */}
-                        <div>
+                        <div className="flex-1">
                             <h3
-                                className={`ml-[4px] mt-[-8px] leading-[135%] font-bold transition-all duration-300 ${isOpen
-                                        ? "max-w-[478px] h-[74px] text-[20px] font-bold text-black h-[41px]"
-                                        : " max-w-[478px] h-[74px] text-[20px] font-bold text-[#16123F]"
+                                className={`ml-0 sm:ml-0 md:ml-0 lg:ml-[4px] mt-0 sm:mt-0 md:mt-0 lg:mt-[-8px] leading-[135%] font-bold transition-all duration-300 text-sm sm:text-base md:text-lg lg:text-[20px] ${isOpen
+                                        ? "text-black"
+                                        : "text-[#16123F]"
                                     }`}
                                 style={{
                                     fontFamily: "ArialCustom",
@@ -108,7 +109,7 @@ function FAQCard({
                             {/* Expandable Content */}
                                                     <ExpandableAnswer isOpen={isOpen}>
                                                         <p
-                                                            className="w-full text-[14px] leading-[190%] text-[#6B6B8A]"
+                                                            className="w-full text-xs sm:text-sm md:text-sm lg:text-[14px] leading-6 sm:leading-7 md:leading-7 lg:leading-[190%] text-[#6B6B8A]"
                                                             style={{
                                                                 fontFamily: "ArialCustom",
                                                             }}
@@ -121,7 +122,7 @@ function FAQCard({
 
                     {/* Toggle */}
                     <div
-                        className={`mt-[-2px] flex h-8 w-8 shrink-0 items-center justify-center rounded-[10px] shadow-sm transition-all duration-500 ${isOpen
+                        className={`mt-0 sm:mt-0 md:mt-0 lg:mt-[-2px] flex h-7 w-7 sm:h-7 sm:w-7 md:h-7 md:w-7 lg:h-8 lg:w-8 shrink-0 items-center justify-center rounded-lg sm:rounded-lg md:rounded-lg lg:rounded-[10px] shadow-sm transition-all duration-500 ${isOpen
                                 ? "bg-[#F6D36A]"
                                 : "bg-[#F6F4FB]"
                             }`}
@@ -135,6 +136,7 @@ function FAQCard({
                             alt="toggle"
                             width={24}
                             height={24}
+                            className="w-5 h-5 sm:w-5 sm:h-5 md:w-5 md:h-5 lg:w-6 lg:h-6"
                         />
                     </div>
                 </div>
@@ -147,26 +149,26 @@ export default function FAQSection() {
     const [openId, setOpenId] = useState<number>(1);
 
     return (
-        <section className="bg-white py-18">
-            <div className="mx-auto max-w-[1220px] px-6">
+        <section className="bg-white py-8 sm:py-12 md:py-16 lg:py-18">
+            <div className="mx-auto max-w-[1220px] px-4 sm:px-6 md:px-6 lg:px-6">
                 {/* Heading */}
-                <div className=" flex items-start justify-between gap-10">
-                    <div>
+                <div className="flex flex-col sm:flex-col md:flex-col lg:flex-row items-start justify-between gap-6 sm:gap-8 md:gap-8 lg:gap-10">
+                    <div className="flex-1">
                         <h2
-                            className="w-[546px] h-[160px] text-[64px] font-extrabold leading-[105%] tracking-[-3px] text-black"
+                            className="w-full sm:w-full md:w-full lg:w-[546px] text-2xl sm:text-3xl md:text-4xl lg:text-[64px] font-extrabold leading-tight sm:leading-snug md:leading-snug lg:leading-[105%] tracking-tight sm:tracking-tight md:tracking-tight lg:tracking-[-3px] text-black"
                             style={{
                                 fontFamily: "Archivo",
                             }}
                         >
                             Frequently Asked{" "}
-                            <span className="bg-[#F6D36A] px-2">
+                            <span className="bg-[#F6D36A] px-1 sm:px-1.5 md:px-2 lg:px-2 py-0.5 inline-block">
                                 Questions.
                             </span>
                         </h2>
                     </div>
 
                     <p
-                        className="w-[316px] h-[23px] pt-10 text-center text-[20px] font-bold leading-[100%] tracking-[0%] text-black lg:text-right"
+                        className="w-full sm:w-full md:w-full lg:w-[316px] text-center sm:text-center md:text-center lg:text-right text-base sm:text-lg md:text-lg lg:text-[20px] font-bold leading-normal sm:leading-normal md:leading-normal lg:leading-[100%] text-black pt-0 sm:pt-0 md:pt-0 lg:pt-10"
                         style={{
                             fontFamily: "ArialCustom",
                         }}
@@ -176,9 +178,9 @@ export default function FAQSection() {
                 </div>
 
                 {/* FAQ GRID */}
-                <div className="w-[1198px] h-[454px] mt-10 grid gap-5 lg:grid-cols-2">
+                <div className="w-full mt-6 sm:mt-8 md:mt-10 lg:mt-10 grid gap-3 sm:gap-4 md:gap-4 lg:gap-5 lg:grid-cols-2">
                     {/* Left */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5">
                         {faqData.slice(0, 3).map((faq) => (
                             <FAQCard
                                 key={faq.id}
@@ -194,7 +196,7 @@ export default function FAQSection() {
                     </div>
 
                     {/* Right */}
-                    <div className="flex flex-col gap-5">
+                    <div className="flex flex-col gap-3 sm:gap-4 md:gap-4 lg:gap-5">
                         {faqData.slice(3, 6).map((faq) => (
                             <FAQCard
                                 key={faq.id}

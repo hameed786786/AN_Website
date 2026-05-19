@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollToPlugin } from "gsap/ScrollToPlugin";
 
@@ -48,6 +48,10 @@ const featureItems = [
 
 export default function FeaturesStickyNav() {
   const [activeSection, setActiveSection] = useState("ai-automation");
+  const navScrollRef = useRef<HTMLDivElement | null>(null);
+  const itemRefs = useRef<
+    Record<string, HTMLButtonElement | null>
+  >({});
 
   useEffect(() => {
     const sections = featureItems.map((item) =>
@@ -78,6 +82,28 @@ export default function FeaturesStickyNav() {
     };
   }, []);
 
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    if (window.innerWidth >= 1024) return;
+
+    const container = navScrollRef.current;
+    const activeButton =
+      itemRefs.current[activeSection];
+
+    if (!container || !activeButton) return;
+
+    const targetLeft =
+      activeButton.offsetLeft -
+      (container.clientWidth -
+        activeButton.clientWidth) /
+        2;
+
+    container.scrollTo({
+      left: Math.max(0, targetLeft),
+      behavior: "smooth",
+    });
+  }, [activeSection]);
+
   const scrollToSection = (id: string) => {
     gsap.to(window, {
       duration: 1.4,
@@ -91,17 +117,17 @@ export default function FeaturesStickyNav() {
 
   return (
     <>
-      <section className="w-full pt-[40px] pb-[20px]">
-        <div className="mx-auto w-[1265px]">
+      <section className="w-full pt-[20px] pb-[12px] sm:pt-[26px] sm:pb-[14px] lg:pt-[40px] lg:pb-[20px]">
+        <div className="mx-auto w-full max-w-[1265px] px-4 sm:px-6 lg:px-0">
           {/* Features Heading */}
-          <div className="mb-[20px]">
+          <div className="mb-[12px] sm:mb-[14px] lg:mb-[20px]">
             <h2
-              className="text-[64px] font-bold leading-[100%] tracking-[-2px] text-black"
+              className="text-[28px] font-bold leading-[100%] tracking-[-0.8px] text-black sm:text-[34px] sm:tracking-[-1px] lg:text-[64px] lg:tracking-[-2px]"
               style={{
                 fontFamily: "Geist",
               }}
             >
-              <span className="bg-[rgba(255,199,39,1)] px-[10px] py-[2px]">
+              <span className="bg-[rgba(255,199,39,1)] px-[8px] py-[2px] sm:px-[9px] lg:px-[10px]">
                 Features
               </span>
             </h2>
@@ -110,10 +136,13 @@ export default function FeaturesStickyNav() {
       </section>
 
       {/* Sticky Nav */}
-      <div className="sticky top-0 z-50 w-full bg-[#F8F8F8]/95 backdrop-blur-md pt-[20px] ">
-        <div className="mx-auto w-[1265px]">
+      <div className="sticky top-0 z-50 w-full bg-[#F8F8F8]/95 backdrop-blur-md pt-[10px] sm:pt-[12px] lg:pt-[20px]">
+        <div className="mx-auto w-full max-w-[1265px] px-4 sm:px-6 lg:px-0">
           <div>
-            <div className="flex items-center justify-between overflow-x-auto no-scrollbar py-1 px-1 -mx-1">
+            <div
+              ref={navScrollRef}
+              className="flex items-center justify-start overflow-x-auto no-scrollbar py-1 px-1 -mx-1 lg:justify-between"
+            >
               {featureItems.map((item) => {
                 const isActive =
                   activeSection === item.id;
@@ -121,10 +150,13 @@ export default function FeaturesStickyNav() {
                 return (
                   <button
                     key={item.id}
+                    ref={(el) => {
+                      itemRefs.current[item.id] = el;
+                    }}
                     onClick={() =>
                       scrollToSection(item.id)
                     }
-                    className={`flex h-[34px] shrink-0 items-center gap-[8px] rounded-full px-[16px] transition-all duration-500 hover:scale-[1.04] ${
+                    className={`flex h-[28px] shrink-0 items-center gap-[5px] rounded-full px-[10px] transition-all duration-500 hover:scale-[1.04] sm:h-[30px] sm:gap-[6px] sm:px-[12px] lg:h-[34px] lg:gap-[8px] lg:px-[16px] ${
                       isActive
                         ? "bg-[rgba(255,199,39,1)] text-black"
                         : "bg-transparent text-[#7A7A7A]"
@@ -133,7 +165,7 @@ export default function FeaturesStickyNav() {
                     <img
                       src={item.icon}
                       alt={item.label}
-                        className={`h-[24px] w-[24px] transition-all duration-300 ${
+                        className={`h-[18px] w-[18px] transition-all duration-300 sm:h-[20px] sm:w-[20px] lg:h-[24px] lg:w-[24px] ${
                         isActive
                           ? "opacity-100 scale-105"
                           : "opacity-70"
@@ -149,7 +181,7 @@ export default function FeaturesStickyNav() {
                     />
 
                           <span
-                            className={`whitespace-nowrap text-[14px] leading-[100%] ${isActive ? 'font-bold' : 'font-normal'}`}
+                            className={`whitespace-nowrap text-[11px] leading-[100%] sm:text-[12px] lg:text-[14px] ${isActive ? 'font-bold' : 'font-normal'}`}
                             style={{
                               fontFamily: "ArialCustom",
                             }}
@@ -162,7 +194,7 @@ export default function FeaturesStickyNav() {
             </div>
 
             {/* Divider */}
-            <div className="mt-[24px] h-px w-full bg-[#B8B8B8]" />
+            <div className="mt-[16px] sm:mt-[18px] lg:mt-[24px] h-px w-full bg-[#B8B8B8]" />
           </div>
         </div>
       </div>

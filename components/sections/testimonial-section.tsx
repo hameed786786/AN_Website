@@ -62,13 +62,13 @@ export default function TestimonialSection() {
     };
 
     return (
-        <section className="bg-white py-[120px]">
-            <div className="mx-auto max-w-[1220px] px-6">
+        <section className="bg-white py-12 sm:py-16 md:py-20 lg:py-30">
+            <div className="mx-auto max-w-305 px-3 sm:px-4 md:px-6 lg:px-6">
                 {/* Heading */}
-                <div className="flex items-start justify-between gap-10">
-                    <div>
+                <div className="flex flex-col items-start justify-between gap-4 sm:gap-6 lg:flex-row lg:gap-10">
+                    <div className="w-full lg:w-auto">
                         <h2
-                            className="max-w-[680px] text-[72px] font-extrabold leading-[105%] tracking-[-3px] text-black"
+                            className="max-w-170 text-2xl font-extrabold leading-[110%] tracking-[-1px] text-black sm:text-3xl sm:tracking-[-1.2px] md:text-4xl md:tracking-[-1.5px] lg:text-[72px] lg:leading-[105%] lg:tracking-[-3px]"
                             style={{
                                 fontFamily: "Archivo",
                             }}
@@ -83,7 +83,7 @@ export default function TestimonialSection() {
                     </div>
 
                     <p
-                        className="pt-10 text-center text-[20px] font-bold leading-[100%] text-black lg:text-right"
+                        className="pt-0 text-left text-xs font-bold leading-[120%] text-black sm:text-sm md:text-base lg:pt-10 lg:text-right lg:text-[20px] lg:leading-[100%]"
                         style={{
                             fontFamily: "ArialCustom",
                         }}
@@ -93,33 +93,33 @@ export default function TestimonialSection() {
                 </div>
 
                 {/* Main Container */}
-                <div className="relative mt-20 ml-[-30px] h-[857px] w-[1220px] overflow-hidden rounded-[36px] bg-[#FFF7DD] px-16 py-12">
+                <div className="relative mt-8 ml-0 h-auto w-full overflow-hidden rounded-3xl bg-[#FFF7DD] px-3 py-4 sm:mt-10 sm:rounded-[28px] sm:px-4 sm:py-6 md:px-6 md:py-8 lg:mt-20 lg:-ml-7.5 lg:h-214.25 lg:w-305 lg:rounded-[36px] lg:px-16 lg:py-12">
                     
                     {/* Controls */}
-                    <div className="absolute left-8 top-1/2 z-20 flex -translate-y-1/2 flex-col gap-4">
+                    <div className="absolute right-3 top-3 z-20 flex flex-row gap-2.5 sm:gap-3 lg:left-8 lg:right-auto lg:top-1/2 lg:flex-col lg:-translate-y-1/2 lg:gap-4">
                         <button
                             onClick={handlePrev}
-                            className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105 sm:h-9 sm:w-9 lg:h-11 lg:w-11"
                         >
                             <ChevronUp
-                                size={18}
-                                className="text-[#E8BE42]"
+                                size={16}
+                                className="h-3.5 w-3.5 text-[#E8BE42] sm:h-4 sm:w-4"
                             />
                         </button>
 
                         <button
                             onClick={handleNext}
-                            className="flex h-11 w-11 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105"
+                            className="flex h-8 w-8 items-center justify-center rounded-full bg-white shadow-[0_6px_20px_rgba(0,0,0,0.08)] transition-all duration-500 hover:scale-105 sm:h-9 sm:w-9 lg:h-11 lg:w-11"
                         >
                             <ChevronDown
-                                size={18}
-                                className="text-[#E8BE42]"
+                                size={16}
+                                className="h-3.5 w-3.5 text-[#E8BE42] sm:h-4 sm:w-4"
                             />
                         </button>
                     </div>
 
                     {/* Testimonial Stack */}
-                    <div className="ml-26 flex h-[690px] w-[930px] flex-col gap-5">
+                    <div className="flex w-full flex-col gap-3 pt-8 sm:gap-4 sm:pt-10 lg:ml-26 lg:h-172.5 lg:w-232.5 lg:pt-0">
                         {testimonials.map(
                             (testimonial, index) => {
                                 const isActive =
@@ -128,28 +128,28 @@ export default function TestimonialSection() {
                                 return (
                                     <div
                                         key={testimonial.id}
-                                        className={`mb-[15px] relative rounded-[22px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                        className={`relative mb-2.5 rounded-[16px] border transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:mb-3 sm:rounded-[18px] md:rounded-[20px]
                                         ${
                                             isActive
-                                                ? "border-[#F1D374] bg-white py-7 opacity-100 shadow-[0_10px_30px_rgba(232,190,66,0.18)]"
-                                                : "border-transparent bg-[#FFFBEF] py-5 opacity-35"
+                                                ? "border-[#F1D374] bg-white py-4 opacity-100 shadow-[0_10px_30px_rgba(232,190,66,0.18)] sm:py-5 lg:py-7"
+                                                : "border-transparent bg-[#FFFBEF] py-3 opacity-35 sm:py-4"
                                         }`}
                                     >
                                         {/* Floating Quote */}
-                                        <div className="absolute left-8 top-0 z-30 -translate-y-1/2">
+                                        <div className="absolute left-3 top-0 z-30 -translate-y-1/2 sm:left-5 lg:left-8">
                                             <Image
                                                 src="/Quotes.svg"
                                                 alt="Quote"
                                                 width={64}
                                                 height={64}
-                                                className="h-auto w-[64px]"
+                                                className="h-auto w-8 sm:w-10 lg:w-16"
                                             />
                                         </div>
 
                                         {/* Content */}
-                                        <div className="relative z-10 px-9 pt-5">
+                                        <div className="relative z-10 px-3 pt-3 sm:px-4 sm:pt-4 md:px-6 lg:px-9 lg:pt-5">
                                             <p
-                                                className={`max-w-[700px] text-[16px] font-normal leading-[25px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]
+                                                className={`max-w-175 text-sm font-normal leading-6 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] sm:text-sm sm:leading-6 md:text-[15px] md:leading-6
                                                 ${
                                                     isActive
                                                         ? "text-[#202020]"
@@ -177,7 +177,7 @@ export default function TestimonialSection() {
                                                 <div className="overflow-hidden">
                                                     <div className="animate-[fadeIn_0.75s_cubic-bezier(0.22,1,0.36,1)]">
                                                         <h3
-                                                            className="text-[20px] font-bold text-black"
+                                                            className="text-sm font-bold text-black sm:text-base md:text-[18px]"
                                                             style={{
                                                                 fontFamily:
                                                                     "ArialCustom",
@@ -189,7 +189,7 @@ export default function TestimonialSection() {
                                                         </h3>
 
                                                         <p
-                                                            className="mt-1 text-[14px] text-[#7A7A7A] font-normal"
+                                                            className="mt-1 text-xs font-normal text-[#7A7A7A] sm:text-sm md:text-[13px]"
                                                             style={{
                                                                 fontFamily:
                                                                     "ArialCustom",
