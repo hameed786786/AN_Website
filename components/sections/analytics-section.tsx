@@ -6,28 +6,61 @@ export default function AnalyticsSection() {
             id="analytics"
             className="relative overflow-hidden pt-[40px] pb-[90px] max-lg:pt-[24px] max-lg:pb-[44px]"
         >
-            {/* Bottom Left Glow */}
+            {/* ================= DESKTOP GLOWS - UNCHANGED ================= */}
             <div className="absolute left-[-120px] bottom-[250px] z-0 h-[620px] w-[820px] rounded-full bg-[#FFF1BE]/90 blur-[150px] max-lg:hidden" />
 
-            {/* Secondary Glow */}
             <div className="absolute left-[120px] bottom-[20px] z-0 h-[360px] w-[360px] rounded-full bg-[#FFF8E7]/90 blur-[120px] max-lg:hidden" />
 
-            {/* Main Container */}
+            {/* ================= MOBILE GLOW ================= */}
+
+            {/* ================= MAIN CONTAINER ================= */}
             <div className="relative z-20 mx-auto w-[1265px] max-lg:w-full max-lg:px-4 md:max-lg:px-6">
-                {/* Layout */}
-                <div className="grid grid-cols-[390px_1fr] items-center gap-[74px] max-lg:grid-cols-1 max-lg:gap-8">
-                    {/* Left Content */}
-                    <div className="pt-[18px] max-lg:pt-0">
-                        {/* Label */}
-                        <div className="flex items-center gap-[8px]">
+
+                {/* ================= MOBILE VIEW ONLY ================= */}
+                <div className="hidden max-lg:block">
+
+                    {/* ================= IMAGE FIRST ================= */}
+                    <div className="relative flex justify-center">
+
+                        {/* MOBILE SHADOW */}
+                        <div className="absolute top-[10px] h-[90%] w-[94%] rounded-[24px] bg-black/10 blur-[28px]" />
+
+                        {/* IMAGE */}
+                        <Image
+                            src="/features/analytics-dashboard.png"
+                            alt="Analytics Dashboard"
+                            width={760}
+                            height={360}
+                            priority
+                            className="
+                                relative z-10
+                                h-auto
+                                w-full
+                                max-w-[390px]
+                                object-contain
+                            "
+                        />
+                    </div>
+
+                    {/* ================= CONTENT BELOW ================= */}
+                    <div className="mt-[28px]">
+
+                        {/* LABEL */}
+                        <div className="flex items-center gap-[7px]">
+
                             <img
                                 src="/features/analytics.svg"
                                 alt="Analytics"
-                                className="h-[24px] w-[24px] max-lg:h-[20px] max-lg:w-[20px]"
+                                className="h-[18px] w-[18px]"
                             />
 
                             <span
-                                className="text-[14px] font-normal leading-[100%] text-[#777777] max-lg:text-[12px]"
+                                className="
+                                    text-[12px]
+                                    font-normal
+                                    leading-[100%]
+                                    text-[#777777]
+                                "
                                 style={{
                                     fontFamily: "ArialCustom",
                                 }}
@@ -36,9 +69,74 @@ export default function AnalyticsSection() {
                             </span>
                         </div>
 
-                        {/* Heading */}
+                        {/* HEADING */}
                         <h2
-                            className="mt-[26px] w-[430px] text-[36px] font-semibold leading-[122%] tracking-[-1px] text-[#171717] max-lg:mt-4 max-lg:w-full max-lg:text-[28px] max-lg:leading-[120%]"
+                            className="
+                                mt-[18px]
+                                max-w-[320px]
+                                text-[24px]
+                                font-semibold
+                                leading-[122%]
+                                tracking-[-1.3px]
+                                text-[#171717]
+                            "
+                            style={{
+                                fontFamily: "Geist",
+                                fontWeight : 600,
+                            }}
+                        >
+                            Make Smarter Decisions With Real Data
+                        </h2>
+
+                        {/* DESCRIPTION */}
+                        <p
+                            className="
+                                mt-[16px]
+                                max-w-[330px]
+                                text-[14px]
+                                font-normal
+                                text-[#7A7A7A]
+                            "
+                            style={{
+                                fontFamily: "ArialCustom",
+                                fontWeight : 400,
+                            }}
+                        >
+                            Understand What&apos;s Working, Identify
+                            Bottlenecks, And Continuously Improve Your
+                            Workflow With Data-Driven Clarity.
+                        </p>
+                    </div>
+                </div>
+
+                {/* ================= DESKTOP/TABLET VIEW UNCHANGED ================= */}
+                <div className="grid grid-cols-[390px_1fr] items-center gap-[74px] max-lg:hidden">
+
+                    {/* LEFT CONTENT */}
+                    <div className="pt-[18px]">
+
+                        {/* LABEL */}
+                        <div className="flex items-center gap-[8px]">
+
+                            <img
+                                src="/features/analytics.svg"
+                                alt="Analytics"
+                                className="h-[24px] w-[24px]"
+                            />
+
+                            <span
+                                className="text-[14px] font-normal leading-[100%] text-[#777777]"
+                                style={{
+                                    fontFamily: "ArialCustom",
+                                }}
+                            >
+                                Analytics
+                            </span>
+                        </div>
+
+                        {/* HEADING */}
+                        <h2
+                            className="mt-[26px] w-[430px] text-[36px] font-semibold leading-[122%] tracking-[-1px] text-[#171717]"
                             style={{
                                 fontFamily: "Geist",
                             }}
@@ -46,9 +144,9 @@ export default function AnalyticsSection() {
                             Make Smarter Decisions With Real Data
                         </h2>
 
-                        {/* Description */}
+                        {/* DESCRIPTION */}
                         <p
-                            className="mt-[30px] w-[430px] text-[16px] font-normal leading-[135%] text-[#7A7A7A] max-lg:mt-4 max-lg:w-full max-lg:text-[14px] max-lg:leading-[150%]"
+                            className="mt-[30px] w-[430px] text-[16px] font-normal leading-[135%] text-[#7A7A7A]"
                             style={{
                                 fontFamily: "ArialCustom",
                             }}
@@ -59,19 +157,20 @@ export default function AnalyticsSection() {
                         </p>
                     </div>
 
-                    {/* Dashboard */}
-                    <div className="relative flex justify-end max-lg:justify-center">
-                        {/* Soft Shadow */}
-                        <div className="absolute right-[20px] top-[30px] h-[82%] w-[88%] rounded-[40px] bg-black/10 blur-[65px] max-lg:hidden" />
+                    {/* RIGHT IMAGE */}
+                    <div className="relative flex justify-end">
 
-                        {/* Dashboard Image */}
+                        {/* SHADOW */}
+                        <div className="absolute right-[20px] top-[30px] h-[82%] w-[88%] rounded-[40px] bg-black/10 blur-[65px]" />
+
+                        {/* IMAGE */}
                         <Image
                             src="/features/analytics-dashboard.png"
                             alt="Analytics Dashboard"
                             width={760}
                             height={360}
                             priority
-                            className="relative z-10 h-auto w-[760px] object-contain max-lg:w-full max-lg:max-w-[620px]"
+                            className="relative z-10 h-auto w-[760px] object-contain"
                         />
                     </div>
                 </div>

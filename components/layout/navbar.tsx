@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Menu } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -37,25 +36,25 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="mt-[10px] w-full py-3 sm:py-4 md:py-5">
+      <header className="mt-[4px] w-full py-3 sm:py-4 md:py-5 max-md:px-[16px]">
         <SectionWrapper>
           <div className="flex items-center justify-between gap-2">
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-1.5 sm:gap-2 md:gap-3 lg:gap-3 flex-shrink-0"
+              className="flex items-center gap-2 md:gap-3 flex-shrink-0"
             >
               <Image
                 src="/logo.svg"
                 alt="Procevia Logo"
                 width={40}
                 height={40}
-                className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-10 lg:w-10"
+                className="h-[30px] w-[30px] md:h-10 md:w-10"
                 priority
               />
 
               <span
-                className="text-sm sm:text-base md:text-lg lg:text-2xl font-normal uppercase leading-5 sm:leading-6 md:leading-8 lg:leading-8 text-black whitespace-nowrap"
+                className="text-[28px] md:text-2xl font-normal uppercase leading-none text-black whitespace-nowrap max-md:text-[18px]"
                 style={{
                   fontFamily: "HEXCO",
                 }}
@@ -70,9 +69,10 @@ export default function Navbar() {
                 <Link
                   key={item.label}
                   href={item.href}
-                  className="text-[16px] font-normal leading-[32px] text-[#171717] transition-colors duration-300 hover:text-black md:text-[12px]"
+                  className="text-[16px] font-semibold leading-[32px] text-[#171717] transition-colors duration-300 hover:text-black md:text-[16px]"
                   style={{
                     fontFamily: "ArialCustom",
+                    fontWeight: "400",
                   }}
                 >
                   {item.label}
@@ -80,37 +80,41 @@ export default function Navbar() {
               ))}
             </nav>
 
-            {/* Desktop CTA + Mobile Menu Button */}
+            {/* Desktop CTA + Mobile Menu */}
             <div className="flex items-center gap-2 sm:gap-3 md:gap-4">
-              {/* CTA */}
               <CTAButton className="hidden md:flex">
                 <p
                   className="text-[20px] leading-[32px] tracking-[-0.02em] font-black"
                   style={{
-                    fontFamily: "ArialCustom, Arial, sans-serif"
+                    fontFamily: "ArialCustom, Arial, sans-serif",
                   }}
                 >
                   Book a Demo
                 </p>
               </CTAButton>
 
-              {/* Hamburger Menu Button */}
+              {/* Mobile Menu */}
               <button
                 onClick={() => setIsSidebarOpen(true)}
-                className="flex md:hidden items-center justify-center p-1.5 text-gray-700 hover:text-black transition-colors flex-shrink-0"
+                className="flex md:hidden items-center justify-center p-1 text-black"
                 aria-label="Open menu"
               >
-                <Menu size={24} />
+                <Image
+                  src="/jam_menu.svg"
+                  alt="Menu"
+                  width={28}
+                  height={28}
+                  className="h-[28px] w-[28px]"
+                />
               </button>
             </div>
           </div>
         </SectionWrapper>
       </header>
 
-      {/* Mobile Sidebar */}
-      <MobileSidebar 
-        isOpen={isSidebarOpen} 
-        onClose={() => setIsSidebarOpen(false)} 
+      <MobileSidebar
+        isOpen={isSidebarOpen}
+        onClose={() => setIsSidebarOpen(false)}
       />
     </>
   );
