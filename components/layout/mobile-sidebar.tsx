@@ -44,7 +44,7 @@ export default function MobileSidebar({ isOpen, onClose }: MobileSidebarProps) {
 
       {/* Sidebar */}
       <div
-        className={`fixed left-0 top-0 z-50 h-screen w-64 bg-white shadow-lg transition-transform duration-300 ${
+        className={`fixed left-0 top-0 z-250 h-screen w-64 bg-white shadow-lg transition-transform duration-300 ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >
