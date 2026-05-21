@@ -53,7 +53,7 @@ export default function FeaturesHeroSection() {
                             </h1>
 
                             {/* FLOATING LOGO */}
-                            <div className="scale-[0.58]">
+                            <div className="scale-[0.88]">
                                 <FloatingLogoCard />
                             </div>
 
